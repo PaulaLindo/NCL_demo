@@ -4,49 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NCL Mobile App Mockups</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px;
-        }
-        .main-heading {
-            font-size: 2.5rem;
-            color: #2C2C2C;
-            margin-bottom: 30px;
-        }
-        .file-links {
-            list-style: none;
-            padding: 0;
-        }
-        .file-links li {
-            margin-bottom: 20px;
-        }
-        .file-links a {
-            padding: 15px 30px;
-            background-color: #B29654;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease;
-        }
-        .file-links a:hover {
-            background-color: #9C7C43;
-        }
-    </style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        text-align: center;
+        padding: 40px;
+        background-color: #F5F5F5; /* Light gray background */
+        color: #2C2C2C; /* A dark color for contrast */
+        font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    }
+    .main-heading {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .file-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .file-links a {
+        padding: 18px 35px;
+        background-color: #DAA520; /* Goldenrod color for buttons */
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        min-width: 250px;
+        display: inline-block;
+    }
+    .file-links a:hover {
+        background-color: #B8860B; /* A darker gold for hover effect */
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+</style>
 </head>
 <body>
     <div class="mockup-container">
         <h1 class="main-heading">NCL Mobile App Interface Mockups</h1>
-        <ul class="file-links">
-            <li><a href="customer_app.html">View Customer App Mockups</a></li>
-            <li><a href="staff_app.html">View Staff App Mockups</a></li>
-        </ul>
+<ul class="file-links">
+    <li><a href="customer-app/login_screen.html">Customer Login Screen</a></li>
+    <li><a href="customer-app/home_screen.html">Customer Home Screen</a></li>
+    <li><a href="customer-app/services_screen.html">Customer Services Screen</a></li>
+    <li><a href="customer-app/booking_form.html">Customer Booking Form</a></li>
+    <li><a href="customer-app/booking_screen.html">Customer Booking Screen</a></li>
+    <li><a href="customer-app/profile_screen.html">Customer Profile Screen</a></li>
+    <li><a href="staff-app/staff_dashboard.html">Staff Dashboard</a></li>
+    <li><a href="staff-app/job_details.html">Staff Job Details</a></li>
+
+</ul>
     </div>
+
+    <script src="styles/common/common.js"></script>
 </body>
 </html>

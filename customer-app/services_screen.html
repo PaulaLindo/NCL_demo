@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCL Mobile App - Services</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages/customer/services.css">
+</head>
+<body>
+    <div class="phone-mockup">
+        <div class="phone-screen services-screen-container">
+            <div class="status-bar">
+                <span class="status-time">9:41</span>
+                <div class="status-icons">
+                    <span>📶</span>
+                    <span>🔋</span>
+                </div>
+            </div>
+            
+            <div class="screen-content">
+                <!-- Header Section -->
+                <header class="app-header">
+                    <button class="back-btn" aria-label="Go back">
+                        <span class="back-icon">←</span>
+                    </button>
+                    <div class="header-content">
+                        <h1 class="header-title">Our Services</h1>
+                        <p class="header-subtitle">Professional home services in Durban</p>
+                    </div>
+                    <button class="search-btn" aria-label="Search services">
+                        <span class="search-icon">🔍</span>
+                    </button>
+                </header>
+
+                <!-- Filter Section -->
+                <section class="filter-section">
+                    <div class="filter-tabs" role="tablist">
+                        <button class="filter-tab active" 
+                                data-category="all" 
+                                role="tab" 
+                                aria-selected="true">
+                            All Services
+                        </button>
+                        <button class="filter-tab" 
+                                data-category="cleaning" 
+                                role="tab" 
+                                aria-selected="false">
+                            Cleaning
+                        </button>
+                        <button class="filter-tab" 
+                                data-category="garden" 
+                                role="tab" 
+                                aria-selected="false">
+                            Garden
+                        </button>
+                        <button class="filter-tab" 
+                                data-category="care" 
+                                role="tab" 
+                                aria-selected="false">
+                            Care
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Main Content Area -->
+                <main class="content-area">
+                    <div class="services-container">
+                        <!-- Services will be dynamically loaded here -->
+                    </div>
+                    
+                    <!-- Loading State -->
+                    <div class="loading-state" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Loading services...</p>
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div class="empty-state" style="display: none;">
+                        <div class="empty-icon">📋</div>
+                        <h3>No services found</h3>
+                        <p>Try adjusting your filters or search terms.</p>
+                    </div>
+                </main>
+
+                <!-- Bottom Navigation -->
+                <nav class="bottom-navigation" role="navigation" aria-label="Main navigation">
+                    <button class="nav-item" data-page="home">
+                        <div class="nav-icon">
+                            <span>🏠</span>
+                        </div>
+                        <span class="nav-label">Home</span>
+                    </button>
+                    <button class="nav-item active" data-page="services" aria-current="page">
+                        <div class="nav-icon">
+                            <span>📋</span>
+                        </div>
+                        <span class="nav-label">Services</span>
+                    </button>
+                    <button class="nav-item" data-page="bookings">
+                        <div class="nav-icon">
+                            <span>📅</span>
+                        </div>
+                        <span class="nav-label">Bookings</span>
+                        <span class="nav-badge" aria-hidden="true">3</span>
+                    </button>
+                    <button class="nav-item" data-page="profile">
+                        <div class="nav-icon">
+                            <span>👤</span>
+                        </div>
+                        <span class="nav-label">Profile</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+        <p class="screen-title">Services Catalog</p>
+    </div>
+
+    <script src="../styles/common/common.js"></script>
+    <script src="../styles/pages/customer/service_screen.js"></script>
+</body>
+</html>

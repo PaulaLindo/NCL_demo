@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCL Mobile App - Home Dashboard</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages/customer/home.css">
+</head>
+<body>
+    <div class="phone-mockup">
+        <div class="phone-screen home-screen-container">
+            <div class="status-bar">
+                <span class="status-time">9:41</span>
+                <div class="status-icons">
+                    <span>📶</span>
+                    <span>🔋</span>
+                </div>
+            </div>
+            
+            <div class="screen-content">
+                <!-- Header Section -->
+                <header class="app-header">
+                    <div class="header-content">
+                        <div class="user-greeting">
+                            <h1 class="header-title">Welcome, Sharon</h1>
+                            <p class="header-subtitle">
+                                <span class="location-icon">📍</span>
+                                <span class="location-text">Durban North</span>
+                            </p>
+                        </div>
+                        <button class="notification-btn" aria-label="View notifications">
+                            <span class="notification-icon">🔔</span>
+                            <span class="notification-badge" aria-hidden="true">2</span>
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Main Content Area -->
+                <main class="content-area">
+                    <!-- Next Booking Card -->
+                    <section class="upcoming-booking-section">
+                        <div class="next-booking-card">
+                            <div class="booking-card-header">
+                                <h2 class="card-title">Next Booking</h2>
+                                <span class="booking-status status-confirmed">Confirmed</span>
+                            </div>
+                            <div class="booking-details">
+                                <h3 class="service-name">Deep Cleaning</h3>
+                                <div class="booking-info">
+                                    <span class="booking-date">
+                                        <span class="date-icon">📅</span>
+                                        Tomorrow at 10:00 AM
+                                    </span>
+                                    <span class="booking-duration">
+                                        <span class="time-icon">⏱️</span>
+                                        ~3 hours
+                                    </span>
+                                </div>
+                            </div>
+                            <button class="view-details-btn" data-booking-id="12345">
+                                View Details
+                                <span class="btn-arrow">→</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Quick Book Services -->
+                    <section class="services-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Quick Book</h2>
+                            <button class="see-all-btn">See All</button>
+                        </div>
+                        
+                        <div class="services-grid">
+                            <article class="service-card" data-service="standard-cleaning">
+                                <div class="service-icon">
+                                    <span></span>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="service-title">Standard Cleaning</h3>
+                                    <p class="service-description">Weekly maintenance cleaning for your home</p>
+                                    <div class="service-meta">
+                                        <span class="service-price">From R280</span>
+                                        <span class="service-duration">2-3 hours</span>
+                                    </div>
+                                </div>
+                                <button class="book-service-btn primary-btn" data-service="standard-cleaning">
+                                    Book Now
+                                </button>
+                            </article>
+
+                            <article class="service-card" data-service="deep-cleaning">
+                                <div class="service-icon">
+                                    <span></span>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="service-title">Deep Cleaning</h3>
+                                    <p class="service-description">Comprehensive seasonal deep cleaning service</p>
+                                    <div class="service-meta">
+                                        <span class="service-price">From R600</span>
+                                        <span class="service-duration">4-6 hours</span>
+                                    </div>
+                                </div>
+                                <button class="book-service-btn primary-btn" data-service="deep-cleaning">
+                                    Book Now
+                                </button>
+                            </article>
+
+                            <article class="service-card" data-service="elderly-care">
+                                <div class="service-icon">
+                                    <span></span>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="service-title">Elderly Care Support</h3>
+                                    <p class="service-description">Non-medical home assistance and companionship</p>
+                                    <div class="service-meta">
+                                        <span class="service-price">R150/hr</span>
+                                        <span class="service-duration">Flexible</span>
+                                    </div>
+                                </div>
+                                <button class="book-service-btn primary-btn" data-service="elderly-care">
+                                    Book Now
+                                </button>
+                            </article>
+                        </div>
+                    </section>
+                </main>
+
+                <!-- Bottom Navigation -->
+                <nav class="bottom-navigation" role="navigation" aria-label="Main navigation">
+                    <button class="nav-item active" data-page="home" aria-current="page">
+                        <div class="nav-icon">
+                            <span>🏠</span>
+                        </div>
+                        <span class="nav-label">Home</span>
+                    </button>
+                    <button class="nav-item" data-page="services">
+                        <div class="nav-icon">
+                            <span>📋</span>
+                        </div>
+                        <span class="nav-label">Services</span>
+                    </button>
+                    <button class="nav-item" data-page="bookings">
+                        <div class="nav-icon">
+                            <span>📅</span>
+                        </div>
+                        <span class="nav-label">Bookings</span>
+                        <span class="nav-badge" aria-hidden="true">3</span>
+                    </button>
+                    <button class="nav-item" data-page="profile">
+                        <div class="nav-icon">
+                            <span>👤</span>
+                        </div>
+                        <span class="nav-label">Profile</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+        <p class="screen-title">Home Dashboard</p>
+    </div>
+
+    <script src="../styles/common/common.js"></script>
+    <script src="../styles/pages/customer/home_screen.js"></script>
+</body>
+</html>

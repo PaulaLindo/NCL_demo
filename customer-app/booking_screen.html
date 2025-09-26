@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - NCL Mobile App</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages/customer/booking.css">
+    <link rel="stylesheet" href="../styles/pages/customer/services.css">
+</head>
+<body>
+    <div class="phone-mockup">
+        <div class="phone-screen fixed-height">
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <span class="status-time">9:41</span>
+                <div class="status-icons">
+                    <span class="signal-icon">📶</span>
+                    <span class="battery-icon">🔋</span>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="screen-content">
+                <!-- Header -->
+                <header class="app-header">
+                    <h1 class="header-title">My Bookings</h1>
+                    <button class="header-action-btn" aria-label="Search bookings">
+                        <span class="search-icon">🔍</span>
+                    </button>
+                </header>
+
+                <!-- Bookings Content -->
+                <main class="content-area">
+                    <!-- Filter Tabs -->
+                    <div class="booking-filters" role="tablist" aria-label="Booking status filters">
+                        <button class="filter-tab active" role="tab" aria-selected="true" data-filter="all">
+                            All
+                        </button>
+                        <button class="filter-tab" role="tab" aria-selected="false" data-filter="upcoming">
+                            Upcoming
+                        </button>
+                        <button class="filter-tab" role="tab" aria-selected="false" data-filter="completed">
+                            Completed
+                        </button>
+                    </div>
+
+                    <!-- Bookings List -->
+                    <div class="bookings-container" id="bookingsContainer">
+                        <!-- Confirmed Booking -->
+                        <article class="booking-card" data-status="confirmed" data-category="upcoming">
+                            <div class="booking-header">
+                                <div class="booking-status status-confirmed" role="status" aria-label="Booking confirmed">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Confirmed</span>
+                                </div>
+                                <button class="booking-menu-btn" aria-label="Booking options">⋮</button>
+                            </div>
+                            
+                            <div class="booking-content">
+                                <h3 class="booking-title">Deep Cleaning</h3>
+                                <div class="booking-details">
+                                    <div class="booking-info">
+                                        <span class="info-icon">📅</span>
+                                        <span class="info-text">Tomorrow, Nov 20 • 10:00 AM</span>
+                                    </div>
+                                    <div class="booking-info">
+                                        <span class="info-icon">📍</span>
+                                        <span class="info-text">123 Marine Drive, Durban North</span>
+                                    </div>
+                                    <div class="booking-info">
+                                        <span class="info-icon">👤</span>
+                                        <span class="info-text">Sarah Johnson</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="booking-actions">
+                                <button class="action-btn primary-btn">
+                                    <span class="btn-icon">👁️</span>
+                                    <span class="btn-text">View Details</span>
+                                </button>
+                                <button class="action-btn secondary-btn">
+                                    <span class="btn-icon">📅</span>
+                                    <span class="btn-text">Reschedule</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Pending Booking -->
+                        <article class="booking-card" data-status="pending" data-category="upcoming">
+                            <div class="booking-header">
+                                <div class="booking-status status-pending" role="status" aria-label="Booking pending">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Pending</span>
+                                </div>
+                                <button class="booking-menu-btn" aria-label="Booking options">⋮</button>
+                            </div>
+                            
+                            <div class="booking-content">
+                                <h3 class="booking-title">Standard Cleaning</h3>
+                                <div class="booking-details">
+                                    <div class="booking-info">
+                                        <span class="info-icon">📅</span>
+                                        <span class="info-text">Nov 25 • Morning Slot</span>
+                                    </div>
+                                    <div class="booking-info">
+                                        <span class="info-icon">📍</span>
+                                        <span class="info-text">456 Musgrave Road, Musgrave</span>
+                                    </div>
+                                    <div class="booking-info">
+                                        <span class="info-icon">⏳</span>
+                                        <span class="info-text">Awaiting confirmation</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="booking-actions">
+                                <button class="action-btn primary-btn">
+                                    <span class="btn-icon">👁️</span>
+                                    <span class="btn-text">View Details</span>
+                                </button>
+                                <button class="action-btn cancel-btn">
+                                    <span class="btn-icon">❌</span>
+                                    <span class="btn-text">Cancel</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Completed Booking -->
+                        <article class="booking-card" data-status="completed" data-category="completed">
+                            <div class="booking-header">
+                                <div class="booking-status status-completed" role="status" aria-label="Booking completed">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Completed</span>
+                                </div>
+                                <button class="booking-menu-btn" aria-label="Booking options">⋮</button>
+                            </div>
+                            
+                            <div class="booking-content">
+                                <h3 class="booking-title">Garden Services</h3>
+                                <div class="booking-details">
+                                    <div class="booking-info">
+                                        <span class="info-icon">📅</span>
+                                        <span class="info-text">Nov 15 • 2:00 PM - 4:00 PM</span>
+                                    </div>
+                                    <div class="booking-info">
+                                        <span class="info-icon">📍</span>
+                                        <span class="info-text">789 Morningside Drive</span>
+                                    </div>
+                                    <div class="booking-info">
+                                        <span class="info-icon">⭐</span>
+                                        <span class="info-text">Rate your experience</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="booking-actions">
+                                <button class="action-btn primary-btn rating-btn">
+                                    <span class="btn-icon">⭐</span>
+                                    <span class="btn-text">Rate Service</span>
+                                </button>
+                                <button class="action-btn secondary-btn">
+                                    <span class="btn-icon">🔄</span>
+                                    <span class="btn-text">Book Again</span>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Empty State (hidden by default) -->
+                    <div class="empty-state" id="emptyState" style="display: none;">
+                        <div class="empty-icon">📋</div>
+                        <h3 class="empty-title">No bookings found</h3>
+                        <p class="empty-description">You don't have any bookings matching the selected filter.</p>
+                        <button class="empty-action-btn">Browse Services</button>
+                    </div>
+                </main>
+
+                <!-- Bottom Navigation -->
+                <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+                    <a href="#" class="nav-item" aria-label="Home">
+                        <div class="nav-icon">🏠</div>
+                        <span class="nav-label">Home</span>
+                    </a>
+                    <a href="#" class="nav-item" aria-label="Services">
+                        <div class="nav-icon">📋</div>
+                        <span class="nav-label">Services</span>
+                    </a>
+                    <a href="#" class="nav-item active" aria-current="page" aria-label="Bookings">
+                        <div class="nav-icon">📅</div>
+                        <span class="nav-label">Bookings</span>
+                    </a>
+                    <a href="#" class="nav-item" aria-label="Profile">
+                        <div class="nav-icon">👤</div>
+                        <span class="nav-label">Profile</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+        <p class="screen-title">My Bookings</p>
+    </div>
+
+    <script src="../styles/common/common.js"></script>
+    <script src="../styles/pages/customer/booking_screen.js"></script>
+</body>
+</html>
