@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service - NCL Mobile App</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages/customer/booking.css">
+    <link rel="stylesheet" href="../styles/pages/customer/services.css">
+</head>
+<body>
+    <div class="phone-mockup">
+        <div class="phone-screen fixed-height">
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <span class="status-time">9:41</span>
+                <div class="status-icons">
+                    <span class="signal-icon">📶</span>
+                    <span class="battery-icon">🔋</span>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="screen-content">
+                <!-- Header -->
+                <header class="app-header">
+                    <button class="header-back-btn" aria-label="Go back">
+                        <span class="back-icon">←</span>
+                    </button>
+                    <div class="header-content">
+                        <h1 class="header-title">Book Service</h1>
+                    </div>
+                    <div class="header-spacer"></div>
+                </header>
+
+                <!-- Booking Form Content -->
+                <main class="content-area">
+                    <!-- Service Summary -->
+                    <section class="service-summary-card">
+                        <h2 class="service-title">Standard Cleaning</h2>
+                        <p class="service-price">
+                            <span class="price-label">Estimated price:</span>
+                            <span class="price-amount">R320</span>
+                            <span class="price-details">for 3BR/2BA</span>
+                        </p>
+                    </section>
+
+                    <!-- Booking Form -->
+                    <form class="booking-form" id="bookingForm">
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label for="booking-date" class="form-label">Select Date</label>
+                                <input 
+                                    type="date" 
+                                    id="booking-date" 
+                                    name="bookingDate"
+                                    class="form-input"
+                                    value="2024-11-20"
+                                    min="2024-01-01"
+                                    required
+                                    aria-describedby="date-help"
+                                >
+                                <small id="date-help" class="form-help">Choose your preferred service date</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preferred-time" class="form-label">Preferred Time</label>
+                                <select 
+                                    id="preferred-time" 
+                                    name="preferredTime"
+                                    class="form-select"
+                                    required
+                                    aria-describedby="time-help"
+                                >
+                                    <option value="">Select time slot</option>
+                                    <option value="morning">Morning (8:00 - 12:00)</option>
+                                    <option value="afternoon" selected>Afternoon (12:00 - 16:00)</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                                <small id="time-help" class="form-help">When would you prefer the service?</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="home-size" class="form-label">Property Size</label>
+                                <select 
+                                    id="home-size" 
+                                    name="homeSize"
+                                    class="form-select"
+                                    required
+                                    aria-describedby="size-help"
+                                >
+                                    <option value="">Select property size</option>
+                                    <option value="small">1-2 Bedrooms</option>
+                                    <option value="medium" selected>3-4 Bedrooms</option>
+                                    <option value="large">5+ Bedrooms</option>
+                                </select>
+                                <small id="size-help" class="form-help">This helps us estimate duration and pricing</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="special-instructions" class="form-label">
+                                    Special Instructions
+                                    <span class="optional-label">(Optional)</span>
+                                </label>
+                                <textarea 
+                                    id="special-instructions" 
+                                    name="specialInstructions"
+                                    class="form-textarea"
+                                    placeholder="Any specific requirements, access instructions, or areas of focus..."
+                                    rows="3"
+                                    maxlength="500"
+                                    aria-describedby="instructions-help"
+                                ></textarea>
+                                <small id="instructions-help" class="form-help">Let us know about any special requirements</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recurring-booking" class="form-label">Booking Frequency</label>
+                                <select 
+                                    id="recurring-booking" 
+                                    name="recurringBooking"
+                                    class="form-select"
+                                    required
+                                    aria-describedby="recurring-help"
+                                >
+                                    <option value="one-time" selected>One-time service</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="bi-weekly">Bi-weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                                <small id="recurring-help" class="form-help">Save with regular bookings</small>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-actions">
+                            <button type="submit" class="primary-button" id="continueBtn">
+                                <span class="btn-text">Continue to Payment</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </div>
+                    </form>
+                </main>
+
+                <!-- Bottom Navigation -->
+                <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+                    <a href="#" class="nav-item" aria-label="Home">
+                        <div class="nav-icon">🏠</div>
+                        <span class="nav-label">Home</span>
+                    </a>
+                    <a href="#" class="nav-item active" aria-current="page" aria-label="Services">
+                        <div class="nav-icon">📋</div>
+                        <span class="nav-label">Services</span>
+                    </a>
+                    <a href="#" class="nav-item" aria-label="Bookings">
+                        <div class="nav-icon">📅</div>
+                        <span class="nav-label">Bookings</span>
+                    </a>
+                    <a href="#" class="nav-item" aria-label="Profile">
+                        <div class="nav-icon">👤</div>
+                        <span class="nav-label">Profile</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+        <p class="screen-title">Booking Form</p>
+    </div>
+
+    <script src="../styles/common/common.js"></script>
+    <script src="../styles/pages/customer/booking_form.js"></script>
+</body>
+</html>

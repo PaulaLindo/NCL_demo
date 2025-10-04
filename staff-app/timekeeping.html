@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timekeeping - NCL Staff App</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages/staff/timekeeping.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+        <div class="phone-mockup">
+            <div class="phone-screen">
+                <div class="status-bar">
+                    <span class="status-time">9:41</span>
+                    <div class="status-icons">
+                        <span class="signal-icon">📶</span>
+                        <span class="battery-icon">🔋</span>
+                    </div>
+                </div>
+
+                <div class="screen-content"> 
+                    
+                    <div id="timekeeping-sticky-header" class="timekeeping-header-container">
+                        
+                        <header class="app-header">
+                            <button id="backToJobsBtn" class="header-back-btn" aria-label="Back to Jobs">
+                                    <span class="material-icons">arrow_back</span>
+                                </button>
+                            <div class="header-content">
+                                <div class="user-greeting">
+                                    <h1 class="header-title">Welcome, <span id="staffNameDisplay">Staff Member</span></h1>
+                                    <p class="current-time" id="currentTimeDisplay">Fri, 3 Oct • 18:29:06</p>
+                                </div>
+                            </div>
+                            <button id="logoutBtn" class="logout-btn" aria-label="Logout">
+                                <span class="material-icons">logout</span>
+                            </button>
+                        </header>
+
+                        <div class="quick-stats-row" id="quick-stats-row">
+                            <div class="quick-stats-card">
+                                <span class="stat-value" id="stat-hours">0.0h</span>
+                                <span class="stat-label">Hours</span>
+                            </div>
+                            <div class="quick-stats-card">
+                                <span class="stat-value" id="stat-jobs">0</span>
+                                <span class="stat-label">Active Jobs</span>
+                            </div>
+                            <div class="quick-stats-card">
+                                <span class="stat-value" id="stat-status">Off-Duty</span>
+                                <span class="stat-label">Status</span>
+                            </div>
+                        </div>
+
+                        <div class="action-tabs" id="actionTabs">
+                            <button class="action-tab active" data-tab="timer">Timer</button>
+                            <button class="action-tab" data-tab="schedule">Schedule</button>
+                            <button class="action-tab" data-tab="history">History</button>
+                        </div>
+                    </div>
+                    <div id="timekeeping-content-area" class="timekeeping-content-area">
+                        </div>
+
+                </div>
+                <div class="nav-bar">
+                    <nav class="navigation">
+                        <button class="nav-item" data-page="home">
+                            <div class="nav-icon">
+                                <span>🏠</span>
+                            </div>
+                            <span class="nav-label">Home</span>
+                        </button>
+                        <button class="nav-item active" data-page="timekeeping">
+                            <div class="nav-icon active-icon">
+                                <span>⏰</span>
+                            </div>
+                            <span class="nav-label">Timekeeping</span>
+                        </button>
+                        <button class="nav-item" data-page="quality">
+                            <div class="nav-icon">
+                                <span>💼</span>
+                            </div>
+                            <span class="nav-label">Quality</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    <div id="qrScannerModal" class="modal" role="dialog" aria-labelledby="scannerTitle" aria-modal="true">
+        <div class="modal-content">
+            <h2 class="modal-title" id="scannerTitle">QR Scanner</h2>
+            <div class="scanner-viewport">
+                <div class="scanner-placeholder">
+                    <span class="scan-icon">📷</span>
+                    <div class="scan-text">Scanning Job Site QR Code...</div>
+                </div>
+            </div>
+            <p class="modal-info">Verifying location and job assignment...</p>
+            <button class="action-btn checkout-btn" id="closeScannerModal" aria-label="Cancel scanning">Cancel Scan</button>
+        </div>
+    </div>
+</div>
+
+    <script src="../styles/common/common.js"></script>
+    <script src="../styles/pages/staff/timekeeping.js"></script>
+</body>
+</html>

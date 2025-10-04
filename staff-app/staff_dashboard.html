@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Jobs - NCL Staff App</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages/staff/dashboard.css">
+</head>
+<body>
+    <div class="phone-mockup">
+            <div class="phone-screen">
+                <!-- Status Bar -->
+                <div class="status-bar">
+                    <span class="status-time">9:41</span>
+                    <div class="status-icons">
+                        <span class="signal-icon">📶</span>
+                        <span class="battery-icon">🔋</span>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="screen-content">
+                    <!-- Header -->
+                    <header class="app-header">
+                        <button class="search-btn" aria-label="Filter jobs" id="filterBtn">
+                                <span class="search-icon">🔍</span>
+                            </button>
+                        <div class="header-content">
+                            <div class="user-greeting">
+                                <h1 class="header-title">My Jobs</h1>
+                                <p class="header-subtitle">
+                                    <span class="jobs-count" id="jobsCount">2 jobs today</span>
+                                </p>
+                            </div>
+                        </div>
+                            <button class="notification-btn" aria-label="Notifications" id="notificationsBtn">
+                                <span class="notification-icon">🔔</span>
+                                <span class="notification-badge" id="notificationBadge" aria-hidden="true">2</span>
+                            </button>
+                    </header>
+
+                    <!-- Quick Stats -->
+                    <section class="quick-stats" aria-label="Today's job statistics">
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="todayEarnings">R550</span>
+                                <span class="stat-label">Today's Earnings</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⏱️</div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="hoursWorked">6h</span>
+                                <span class="stat-label">Hours Scheduled</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="rating">4.8</span>
+                                <span class="stat-label">Your Rating</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Job Filter Tabs -->
+                    <section class="filter-section">
+                        <div class="filter-tabs" role="tablist" aria-label="Job status filters">
+                            <button class="filter-tab active"
+                                    role="tab" 
+                                    aria-selected="true" 
+                                    data-filter="today">
+                                Today
+                            </button>
+                            <button class="filter-tab" 
+                                    role="tab" 
+                                    aria-selected="false" 
+                                    data-filter="upcoming">
+                                Upcoming
+                            </button>
+                            <button class="filter-tab" 
+                                    role="tab" 
+                                    aria-selected="false" 
+                                    data-filter="completed">
+                                Completed
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Jobs Content -->
+                    <main class="content-area" id="jobsContainer">
+                        <!-- Active Job Card -->
+                        <article class="job-card active-job" data-job-id="1" data-status="in-progress">
+                            <div class="job-status-badge status-active">
+                                <span class="status-dot"></span>
+                                <span class="status-text">In Progress</span>
+                            </div>
+                            
+                            <div class="job-header">
+                                <div class="job-main-info">
+                                    <h3 class="job-title">Deep Cleaning - Smith Residence</h3>
+                                    <div class="job-client">
+                                        <span class="client-icon">👤</span>
+                                        <span class="client-name">Mrs. Sarah Smith</span>
+                                        <span class="client-phone">📞</span>
+                                    </div>
+                                </div>
+                                <div class="job-priority">
+                                    <span class="priority-badge high">High Priority</span>
+                                </div>
+                            </div>
+
+                            <div class="job-details">
+                                <div class="job-timing">
+                                    <span class="timing-icon">🕘</span>
+                                    <div class="timing-info">
+                                        <span class="job-time">Today • 10:00 AM - 1:00 PM</span>
+                                        <span class="time-remaining">45 minutes remaining</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="job-location">
+                                    <span class="location-icon">📍</span>
+                                    <div class="location-info">
+                                        <span class="job-address">123 Marine Drive, Durban North</span>
+                                        <span class="distance">2.3 km away</span>
+                                    </div>
+                                </div>
+
+                                <div class="job-payment">
+                                    <span class="payment-icon">💳</span>
+                                    <div class="payment-info">
+                                        <span class="estimated-pay">R350 estimated</span>
+                                        <span class="payment-method">Card payment</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-type-badge deep-cleaning">Deep Cleaning</div>
+
+                            <div class="job-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%;"></div>
+                                </div>
+                                <span class="progress-text">65% Complete</span>
+                            </div>
+
+                            <div class="job-actions">
+                                <button class="action-btn primary-btn" data-action="continue" data-job-id="1">
+                                    <span class="btn-icon">▶️</span>
+                                    <span class="btn-text">Continue Job</span>
+                                </button>
+                                <button class="action-btn secondary-btn" data-action="navigate" data-job-id="1">
+                                    <span class="btn-icon">🗺️</span>
+                                    <span class="btn-text">Navigate</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Upcoming Job Card -->
+                        <article class="job-card upcoming-job" data-job-id="2" data-status="scheduled">
+                            <div class="job-status-badge status-scheduled">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Scheduled</span>
+                            </div>
+                            
+                            <div class="job-header">
+                                <div class="job-main-info">
+                                    <h3 class="job-title">Standard Cleaning - Jones Apartment</h3>
+                                    <div class="job-client">
+                                        <span class="client-icon">👤</span>
+                                        <span class="client-name">Mr. David Jones</span>
+                                        <span class="client-phone">📞</span>
+                                    </div>
+                                </div>
+                                <div class="job-menu">
+                                    <button class="job-menu-btn" aria-label="Job options" data-job-id="2">⋮</button>
+                                </div>
+                            </div>
+
+                            <div class="job-details">
+                                <div class="job-timing">
+                                    <span class="timing-icon">🕐</span>
+                                    <div class="timing-info">
+                                        <span class="job-time">Today • 2:00 PM - 4:00 PM</span>
+                                        <span class="time-until">Starts in 3 hours</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="job-location">
+                                    <span class="location-icon">📍</span>
+                                    <div class="location-info">
+                                        <span class="job-address">456 Musgrave Road, Musgrave</span>
+                                        <span class="distance">5.1 km away</span>
+                                    </div>
+                                </div>
+
+                                <div class="job-payment">
+                                    <span class="payment-icon">💳</span>
+                                    <div class="payment-info">
+                                        <span class="estimated-pay">R200 estimated</span>
+                                        <span class="payment-method">Cash payment</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-type-badge standard-cleaning">Standard Cleaning</div>
+
+                            <div class="job-special-instructions">
+                                <span class="instructions-icon">📝</span>
+                                <span class="instructions-text">Focus on kitchen and bathrooms</span>
+                            </div>
+
+                            <div class="job-actions">
+                                <button class="action-btn primary-btn" data-action="start" data-job-id="2">
+                                    <span class="btn-icon">🚀</span>
+                                    <span class="btn-text">Start Job</span>
+                                </button>
+                                <button class="action-btn secondary-btn" data-action="navigate" data-job-id="2">
+                                    <span class="btn-icon">🗺️</span>
+                                    <span class="btn-text">Navigate</span>
+                                </button>
+                                <button class="action-btn info-btn" data-action="details" data-job-id="2">
+                                    <span class="btn-icon">ℹ️</span>
+                                    <span class="btn-text">Details</span>
+                                </button>
+                            </div>
+                        </article>
+                    </main>
+
+                    <!-- Empty State (hidden by default) -->
+                    <div class="empty-state" id="emptyState" style="display: none;">
+                        <div class="empty-icon">📋</div>
+                        <h3 class="empty-title">No jobs found</h3>
+                        <p class="empty-description">You don't have any jobs for the selected period.</p>
+                        <button class="empty-action-btn">Check Schedule</button>
+                    </div>
+
+                    <!-- Floating Action Button -->
+                    <button class="fab" id="emergencyBtn" aria-label="Emergency contact">
+                        <span class="fab-icon">🆘</span>
+                    </button>
+
+                    <!-- Bottom Navigation -->
+                    <nav class="bottom-navigation" role="navigation" aria-label="Main navigation">
+                        <button class="nav-item active" data-page="Jobs" aria-current="page">
+                            <div class="nav-icon">
+                                <span>🏠</span>
+                            </div>
+                            <span class="nav-label">Jobs</span>
+                            <span class="nav-badge">2</span>
+                        </button>
+                        <button class="nav-item" data-page="schedule">
+                            <div class="nav-icon">
+                                <span>📅</span>
+                            </div>
+                            <span class="nav-label">Schedule</span>
+                        </button>
+                        <button class="nav-item" aria-label="Earnings">
+                            <div class="nav-icon">
+                                <span>💰</span>
+                            </div>
+                            <span class="nav-label">Earnings</span>
+                        </button>
+                        <button class="nav-item" data-page="profile">
+                            <div class="nav-icon">
+                                <span>👤</span>
+                            </div>
+                            <span class="nav-label">Profile</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            <p class="screen-title">Staff Job Dashboard</p>
+        </div>
+
+    <script src="../styles/common/common.js"></script>
+    <script src="../styles/pages/staff/staff_dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+:root {
+    /* --primary-color: #DAA520; Goldenrod for buttons and accents */
+    --primary-color: #5d3f6a; /* A deep, rich purple */
+    --gold-accent: #eecb05; /* Standard Gold */
+    --secondary-color: #2C2C2C; /* Deep charcoal for headers and titles */
+    --light-background: #F5F5F5; /* A clean, solid light gray background */
+    --container-background: #E9E7E7; /* The light gray for containers */
+    --border-color: #E0E0E0; /* Subtle light gray for borders */
+    --text-color: #333333; /* Dark gray for main text */
+    --subtle-text: #868686;
+    --faded-text: #cfd0d1;
+    --green-status: #4caf50;
+    --red-status: #f44336;
+    --font-family: 'Inter', sans-serif;
+    --card-background: #ffffff; /* White background for job cards and forms */
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    background-color: var(--light-background);
+}
+
+body {
+    line-height: 1.6;
+}
+
+p {
+    color: var(--subtle-text, #868686);
+    line-height: 1.5;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: 1px solid var(--light-background);
+}

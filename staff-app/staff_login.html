@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Login - NCL</title>
+    <link rel="stylesheet" href="../styles/base.css"> 
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages/customer/login.css"> 
+</head>
+<body>
+    <div class="mockup-container">
+        <h1 class="section-title">NCL Staff Access</h1>
+        <div class="app-section">
+            <h2 class="app-title">Staff Timekeeping App</h2>
+            <div class="screens-grid">
+        <div class="phone-mockup">
+            <div class="phone-screen active-screen login-screen-container">
+                <div class="status-bar">
+                            <span class="status-time">9:41</span>
+                            <div class="status-icons">
+                                <span>📶</span>
+                                <span>🔋</span>
+                            </div>
+                        </div>
+                <div class="screen-content">
+                    <div class="login-container">
+                        <div class="brand-section">
+                            <img src="../images/Comprehensive Home Services.png" 
+                                         alt="Comprehensive Home Services Logo" 
+                                         class="brand-logo">
+                            <h1 class="brand-title">Staff Timekeeping Login</h1>
+                            <p class="brand-subtitle">Enter your Staff ID and PIN to clock in.</p>
+                        </div>
+
+                            <form class="login-form" id="staff-login-form" novalidate>
+                                
+                                <div class="form-group">
+                                    <label for="staff-id-input" class="form-label">Staff ID</label>
+                                    <div class="input-container">
+                                        <input type="text" id="staff-id-input" name="staffId" class="form-input" placeholder="e.g., staff001" required>
+                                    </div>
+                                    <p class="error-message" id="staff-id-error" role="alert"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password-input" class="form-label">PIN / Password</label>
+                                    <div class="input-container password-container">
+                                        <input type="password" id="password-input" name="password" class="form-input" placeholder="Enter PIN / Password"
+                                               autocomplete="off"
+                                               required minlength="4">
+                                        <button type="button"
+                                                id="toggle-password" 
+                                                class="password-toggle" 
+                                                aria-label="Show password">
+                                                <span class="toggle-text">Show</span>
+                                        </button>
+                                    </div>
+                                    <p class="error-message" id="password-error" role="alert"></p>
+                                </div>
+
+                                <button type="submit" id="login-button" class="primary-button">
+                                    <span class="button-text">Log In</span>
+                                    <span class="loading-spinner" style="display: none;"></span> 
+                                </button>
+                                
+                            </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <p class="screen-title">NCL Staff Login</p>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="../styles/common/common.js"></script>
+    <script src="../styles/pages/staff/staff_login.js"></script>
+</body>
+</html>
