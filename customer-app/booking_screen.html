@@ -25,8 +25,10 @@
             <div class="screen-content">
                 <!-- Header -->
                 <header class="app-header">
-                    <h1 class="header-title">My Bookings</h1>
-                    <button class="header-action-btn" aria-label="Search bookings">
+                    <div class="header-content">
+                        <h1 class="header-title">My Bookings</h1>
+                    </div>
+                    <button class="search-btn" aria-label="Search bookings">
                         <span class="search-icon">🔍</span>
                     </button>
                 </header>
@@ -179,23 +181,31 @@
                 </main>
 
                 <!-- Bottom Navigation -->
-                <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
-                    <a href="#" class="nav-item" aria-label="Home">
-                        <div class="nav-icon">🏠</div>
+                <nav class="bottom-navigation" role="navigation">
+                    <button class="nav-item" data-page="home"> 
+                        <div class="nav-icon">
+                            <span>🏠</span>
+                        </div>
                         <span class="nav-label">Home</span>
-                    </a>
-                    <a href="#" class="nav-item" aria-label="Services">
-                        <div class="nav-icon">📋</div>
+                    </button>
+                    <button class="nav-item" data-page="services">
+                        <div class="nav-icon">
+                            <span>📋</span>
+                        </div>
                         <span class="nav-label">Services</span>
-                    </a>
-                    <a href="#" class="nav-item active" aria-current="page" aria-label="Bookings">
-                        <div class="nav-icon">📅</div>
+                    </button>
+                    <button class="nav-item active" aria-current="page" data-page="bookings">
+                        <div class="nav-icon">
+                            <span>📅</span>
+                        </div>
                         <span class="nav-label">Bookings</span>
-                    </a>
-                    <a href="#" class="nav-item" aria-label="Profile">
-                        <div class="nav-icon">👤</div>
+                    </button>
+                    <button class="nav-item" data-page="profile">
+                        <div class="nav-icon">
+                            <span>👤</span>
+                        </div>
                         <span class="nav-label">Profile</span>
-                    </a>
+                    </button>
                 </nav>
             </div>
         </div>

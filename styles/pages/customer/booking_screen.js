@@ -645,10 +645,10 @@ class BookingScreenManager {
      */
     getNotificationColor(type) {
         const colors = {
-            error: '#dc2626',
-            success: '#059669',
+            error: 'var(--red-status, #dc2626)',
+            success: 'var(--green-status, #059669)',
             info: '#3b82f6',
-            warning: '#d97706'
+            warning: '#f59e0b'
         };
         return colors[type] || colors.info;
     }

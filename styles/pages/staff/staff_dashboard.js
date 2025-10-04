@@ -323,6 +323,12 @@ class StaffDashboardManager {
         const statusClass = `status-${job.status.replace('-', '')}`;
         const statusText = job.status.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
 
+        // Check if this job is currently active in timekeeping
+        const activeJobId = sessionStorage.getItem('activeJobId');
+        const isActive = job.id === activeJobId;
+
+        article.className = `job-card ${isActive ? 'currently-clocked-in' : ''} ${job.status === 'in-progress' ? 'active-job' : 'upcoming-job'}`;
+
         article.innerHTML = `
             <div class="job-status-badge ${statusClass}" role="status" aria-label="Job ${job.status}">
                 <span class="status-dot"></span>
@@ -587,11 +593,17 @@ class StaffDashboardManager {
         // Simulate API call
         await this.delay(1000);
         
-        // Update job status
-        job.status = 'in-progress';
-        job.progress = 10;
-        job.startedAt = new Date().toISOString();
-        job.timeRemaining = this.calculateTimeRemaining(job);
+        // // Update job status
+        // job.status = 'in-progress';
+        // job.progress = 10;
+        // job.startedAt = new Date().toISOString();
+        // job.timeRemaining = this.calculateTimeRemaining(job);
+
+        // Store active job for timekeeping to read
+        sessionStorage.setItem('activeJob', JSON.stringify(job));
+        
+        // Redirect to timekeeping with auto-checkin parameter
+        window.location.href = `timekeeping.html?jobId=${job.id}&action=checkin`;
         
         this.showNotification(`Started ${job.serviceName}`, 'success');
         this.applyFilter(this.currentFilter);

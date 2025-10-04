@@ -23,72 +23,6 @@
     text-align: center;
 }
 
-/* Filter Section */
-.filter-section {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 0.8rem 1.25rem 0.75rem;
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-}
-
-.filter-tabs {
-    display: flex;
-    gap: 0.75rem;
-    overflow-x: auto;
-    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
-    scrollbar-width: none; /* For Firefox */
-    padding-bottom: 0.25rem;
-}
-
-.filter-tabs::-webkit-scrollbar {
-    display: none;
-    height: 0;
-}
-
-.filter-tab {
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #64748b;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    flex-shrink: 0;
-    position: relative;
-}
-
-.filter-tab:hover {
-    background: #e2e8f0;
-    color: #475569;
-}
-
-.filter-tab.active {
-    background: var(--primary-color, #5d3f6a);
-    color: white;
-    font-weight: 600;
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-    transform: translateY(-1px);
-}
-
-.filter-tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background: var(--primary-color);
-    border-radius: 50%;
-}
-
 
 .services-container {
     display: flex;
@@ -155,27 +89,6 @@
     padding-right: 0;
     margin-bottom: 0.75rem;
 }
-
-/* .service-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    border-radius: 12px;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-}
-
-.service-card:hover .service-icon {
-    transform: scale(1.1) rotate(5deg);
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
-}
-
-.service-icon span {
-    font-size: 1.5rem;
-} */
 
 .service-info {
     flex: 1;
@@ -320,10 +233,6 @@
     transform: translateY(-1px);
     color: #333;
 }
-
-/* .info-btn span {
-    font-size: 1rem;
-} */
 
 /* Featured Service Badge */
 .service-card.featured {

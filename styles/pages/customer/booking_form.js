@@ -262,7 +262,7 @@ class BookingFormManager {
         event.preventDefault();
 
         if (!this.validateForm()) {
-            this.showNotification('Please fill in all required fields', 'error');
+            this.showUserFriendlyError('Please fill in all required fields');
             return;
         }
 
@@ -363,6 +363,9 @@ class BookingFormManager {
     /**
      * Show notification to user
      */
+    showUserFriendlyError(message) {
+    this.showNotification(message, 'error');
+    }
     showNotification(message, type = 'info') {
         // Create notification element
         const notification = document.createElement('div');
@@ -371,11 +374,11 @@ class BookingFormManager {
         
         // Style notification
         Object.assign(notification.style, {
-            position: 'fixed',
-            top: '20px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: '9999',
+            // position: 'fixed',
+            // top: '20px',
+            // left: '50%',
+            // transform: 'translateX(-50%)',
+            // zIndex: '9999',
             padding: '12px 20px',
             borderRadius: '8px',
             color: 'white',

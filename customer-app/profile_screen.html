@@ -19,10 +19,14 @@
                             </div>
                         </div>
                         <div class="screen-content">
-                            <div class="app-header">
-                                <div class="header-title">Profile</div>
-                                <div class="header-icon">⚙️</div>
-                            </div>
+                            <header class="app-header">
+                                <div class="header-content">
+                                    <h1 class="header-title">Profile</h1>
+                                </div>
+                                <button class="settings-btn" aria-label="Settings">
+                                    <span class="settings-icon">⚙️</span>
+                                </button>
+                            </header>
                             <div class="content-area">
                                 <div class="profile-header">
                                     <div class="profile-pic">👤</div>
@@ -47,23 +51,34 @@
                                     <button class="sign-out-btn">Sign Out</button>
                                 </div>
                             </div>
-                            <div class="bottom-nav">
-                                <div class="nav-item">
-                                    <div class="nav-icon">🏠</div>
-                                    <span>Home</span>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="nav-icon">📋</div>
-                                    <span>Services</span>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="nav-icon">📅</div>
-                                    <span>Bookings</span>
-                                </div>
-                                <div class="nav-item active">
-                                    <div class="nav-icon">👤</div>
-                                    <span>Profile</span>
-                                </div>
+
+                            <!-- Bottom Navigation -->
+                            <nav class="bottom-navigation" role="navigation">
+                                <button class="nav-item" data-page="home"> 
+                                    <div class="nav-icon">
+                                        <span>🏠</span>
+                                    </div>
+                                    <span class="nav-label">Home</span>
+                                </button>
+                                <button class="nav-item" data-page="services">
+                                    <div class="nav-icon">
+                                        <span>📋</span>
+                                    </div>
+                                    <span class="nav-label">Services</span>
+                                </button>
+                                <button class="nav-item" data-page="bookings">
+                                    <div class="nav-icon">
+                                        <span>📅</span>
+                                    </div>
+                                    <span class="nav-label">Bookings</span>
+                                </button>
+                                <button class="nav-item active" aria-current="page" data-page="profile">
+                                    <div class="nav-icon">
+                                        <span>👤</span>
+                                    </div>
+                                    <span class="nav-label">Profile</span>
+                                </button>
+                            </nav>
                             </div>
                         </div>
                     </div>

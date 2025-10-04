@@ -1,0 +1,1162 @@
+/* =====================================================
+   NCL Timekeeping System - Refactored Styles
+   Version: 4.0.0
+   ===================================================== */
+
+/* --- NEW: Persistent Header Container --- */
+.phone-screen {
+    /* Ensures the screen stacks status bar, content, and nav vertically */
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    overflow-y: hidden; 
+    overflow-x: visible;
+
+}
+
+.screen-content {
+    /* This wrapper now holds the sticky header and the scrollable content area */
+    flex-grow: 1; /* Allows it to take up all vertical space */
+    overflow-y: auto; /* This enables the main screen scrolling */
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* --- 1. STICKY HEADER CONTAINER --- */
+.timekeeping-header-container {
+    /* CRITICAL: Makes the header stick to the top of the scrolling .screen-content */
+    position: sticky;
+    top: 0; 
+    z-index: 10; 
+    background-color: var(--light-background, #fff);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+    padding-bottom: 5px; 
+}
+
+/* --- Content Area for Scrolling --- */
+.timekeeping-content-area {
+    /* Padding to ensure content starts correctly below the sticky header */
+    padding: 1rem 1.25rem;
+    /* Add sufficient bottom padding to ensure the last content scrolls up above the fixed nav bar */
+    padding-bottom: 10px; 
+    flex-grow: 1; 
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+---
+
+/* --- 2. BOTTOM NAVIGATION BAR (FIXED/STICKY) --- */
+.nav-bar {
+    /* Pushes the bar to the bottom of the flex column (phone-screen) */
+    position: sticky; 
+    bottom: 0;
+    width: 100%;
+    z-index: 20; /* Ensure it is on top of everything */
+    background-color: var(--white, #fff);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Distinct separation shadow */
+    padding: 0;
+}
+
+.navigation {
+    display: flex; /* Distribute items horizontally */
+    justify-content: space-around;
+    align-items: center;
+    padding: 1px 0;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column; /* Stack icon and label */
+    align-items: center;
+    justify-content: center;
+    flex: 1; /* Give all items equal width */
+    padding: 5px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-icon {
+    font-size: 24px;
+    line-height: 1;
+    color: var(--subtle-text, #94a3b8);
+    margin-bottom: 2px;
+}
+
+/* Styling for the custom icons (like 🏠, ⏰) that don't use material-icons */
+.nav-icon span {
+    font-size: inherit; 
+}
+
+.nav-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--subtle-text, #94a3b8);
+    text-transform: uppercase;
+}
+
+/* Active State Styling */
+.nav-item.active .nav-icon,
+.nav-item.active .nav-label,
+.nav-icon.active-icon { /* Active icon class from HTML */
+    color: var(--primary-color, #3b82f6); 
+}
+
+---
+
+/* --- 3. EXISTING HEADER & TAB STYLES (Adjusted for Sticky Container) --- */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures proper spacing */
+    padding: 1rem 1.25rem 0.5rem; /* Adjusted vertical padding */
+}
+
+/* ... (other existing header styles) ... */
+
+/* Quick Stats */
+.quick-stats-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 10px 1.25rem; 
+    margin: 10px 0; 
+}
+/* ... (existing stat-card styles) ... */
+
+/* Tab Navigation (Filter Tabs) */
+.action-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 0 1.25rem 10px; /* Use consistent horizontal padding */
+    margin-top: 5px;
+}
+
+.action-tab {
+    flex: 1;
+    padding: 10px 8px;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--subtle-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.action-tab.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.action-tab:hover {
+    background: #e2e8f0;
+    color: var(--secondary-color);
+}
+
+/* Tab Content Containers */
+.tab-content {
+    display: none;
+    padding: 0 20px 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.content-header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
+
+/* * --- SCHEDULE FILTER BUTTONS (MATCHING ACTION TABS) ---
+ */
+
+.schedule-filter-bar {
+    display: flex; /* Critical for horizontal layout */
+    gap: 4px;
+    margin-bottom: 20px; /* Spacing below the filter buttons */
+}
+
+.schedule-filter-btn {
+    /* Identical styles to .action-tab */
+    flex: 1;
+    padding: 10px 8px;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--subtle-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    
+    /* Ensure no default button padding/margin conflict */
+    margin: 0; 
+}
+
+.schedule-filter-btn.active {
+    /* Identical active state to .action-tab.active */
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* =====================================================
+   TIMER TAB STYLES
+   ===================================================== */
+
+.current-job-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.job-card {
+    margin-top: 15px;
+}
+
+.job-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.timer-display-area {
+    text-align: center;
+}
+
+.timer-label {
+    font-size: 0.8rem;
+    color: var(--subtle-text);
+    font-weight: 500;
+}
+
+.timer-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-family: monospace;
+}
+
+.current-time {
+    text-align: center;
+}
+
+.input-display {
+    padding: 12px 15px;
+    border-radius: 8px;
+    background-color: var(--container-background);
+    border: 1px solid var(--border-color);
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+}
+
+.form-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.2s;
+    color: var(--text-color);
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 1.2em;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.time-records-section {
+    padding-top: 20px;
+}
+
+/* Action Buttons */
+.job-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.checkin-btn {
+    background: var(--success-color);
+    color: white;
+}
+
+.checkin-btn:hover:not(:disabled) {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.checkout-btn {
+    background: var(--warning-color);
+    color: white;
+}
+
+.checkout-btn:hover:not(:disabled) {
+    background: #d97706;
+    transform: translateY(-1px);
+}
+
+.scan-qr-btn, .quality-checkout-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.scan-qr-btn:hover:not(:disabled), .quality-checkout-btn:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* Recent Records */
+.recent-records-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.history-list {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.record-item {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--primary-color, #3b82f6);
+    box-shadow: 0 10px 3px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+}
+
+.record-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    min-width: 0; /* CRITICAL: Enables job-name wrapping */
+    margin-right: 15px; 
+}
+
+.empty-state {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--subtle-text);
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.record-item:last-child {
+    border-bottom: none;
+}
+
+.record-job {
+    display: block;
+    font-weight: 500;
+    color: var(--secondary-color);
+    line-height: 1.3;
+
+}
+
+.record-time {
+    color: var(--subtle-text);
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.3;
+    margin-left: 10px;
+}
+
+.record-action {
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    align-self: flex-start;
+    margin-bottom: 4px;
+
+}
+
+.record-checkin {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.record-checkout {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+/* =====================================================
+   SCHEDULE TAB STYLES
+   ===================================================== */
+
+/* .schedule-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+.calendar-display {
+    margin-top: 1px;
+}
+
+.month-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color); /* Assuming you have a primary color variable */
+    /* border-bottom: 1px solid var(--border-color); */
+
+/* 1. Schedule View Container and Text */
+.schedule-view-container {
+    padding: 1rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.section-subtitle {
+    font-size: 0.85rem;
+    color: var(--subtle-text, #6c757d);
+    margin-bottom: 1rem;
+}
+
+/* 2. Controls (Navigation for month) */
+.schedule-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: var(--container-background, #f8f9fa);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.period-label {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary-color, #333);
+}
+
+.control-btn {
+    background: var(--faded-text, #e5e7eb);
+    border: none;
+    color: var(--primary-color, #3b82f6);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: background-color 0.15s;
+    line-height: 1;
+}
+
+.control-btn:hover {
+    background-color: var(--primary-color, #dbeafe);
+    color: white;
+}
+
+/* 3. Calendar Grid (Monthly View) */
+.schedule-calendar {
+    display: grid;
+    grid-template-columns: repeat(7,1fr); /* 7 columns for days of the week */
+    gap: 2px;
+    border: 2px solid var(--border-color-light, #f0f0f0); ;
+    border-radius: 8px;
+    overflow: visible;
+    background-color: white; /* Separator color */
+    width: 100%;
+    margin: 0 auto;
+    min-width: 600px;
+}
+
+.day-header {
+    background-color: var(--primary-color, #3b82f6);
+    color: white;
+    padding: 8px 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    overflow: visible;
+    position: relative;
+    z-index: 3;
+    border: 1px solid var(--border-color, #e0e0e0);
+}
+
+.calendar-day {
+    min-height: 100px; 
+    padding: 8px 4px;
+    background-color: white;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid var(--subtle-text, #e0e0e0);
+}
+
+.calendar-scroll-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px;
+    scrollbar-color: var(--secondary-color, #888) var(--text-color, #f1f1f1); /* For Firefox */
+    scrollbar-width: thin; /* For Firefox */
+}
+
+.day-number {
+    font-weight: 700;
+    margin-bottom: 8px;
+    align-self: flex-end;
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+/* Day Types and Interactions */
+
+.day-free {
+    /* Free and clickable slots */
+    background-color: var(--green-status, #e6ffed); /* Light green */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid var(--green-status, #10b981);
+    box-shadow: none
+}
+
+.day-free:hover {
+    background-color: var(--green-status, #10b981);
+    color: white;
+    border-color: var(--green-status, #10b981);
+}
+
+.day-off-month {
+    background-color: var(--subtle-text, #f7f7f7);
+    color: var(--subtle-text, #999);
+}
+
+.day-today {
+    box-shadow: inset 0 0 0 2px var(--gold-accent, #eecb05);
+    z-index: 2;
+    position: relative;
+    background-color: var(--card-background, #ffff);
+    border: 1px solid transparent;
+}
+
+.day-today:hover {
+    background-color: var(--green-status, #10b981);
+    color: white;
+    border-color: var(--green-status, #10b981);
+}
+
+/* Shift Styling */
+.shift-item {
+    padding: 2px 4px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    line-height: 1.2;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.shift-platform { /* Jobs taken from our platform (NCL) */
+    background-color: var(--primary-color, #3b82f6);
+    color: white;
+}
+
+.shift-external { /* Shifts from a permanent job (e.g., Hotel) */
+    background-color: var(--warning-color, #ffc107);
+    color: var(--dark-text, #333);
+}
+
+.available-job-label {
+    text-align: center;
+    color: var(--success-color, #10b981);
+    font-weight: 600;
+    margin-top: auto; /* Pushes the label to the bottom */
+    font-size: 0.75rem;
+    padding-top: 5px;
+}
+
+.day-free:hover .available-job-label {
+    color: white; 
+}
+
+.day-date {
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid #f0f0f0;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    padding: 8px;
+}
+
+.shift {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.hotel-shift {
+    background: #fecaca;
+    color: #b91c1c;
+    border: 1px solid #f87171;
+}
+
+.ncl-gig.booked {
+    background: #a7f3d0;
+    color: #047857;
+    border: 1px solid #34d399;
+}
+
+.ncl-gig.available {
+    background: #bfdbfe;
+    color: #1d4ed8;
+    border: 1px solid #60a5fa;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ncl-gig.available:hover {
+    background: #93c5fd;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+} */
+
+/* =====================================================
+   SCHEDULE CALENDAR STYLES
+   ===================================================== */
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.calendar-header .month-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--subtle-text);
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-top: 5px;
+    border-top: 1px solid var(--border-color);
+}
+
+.calendar-day {
+    aspect-ratio: 1 / 1.1; /* Slightly taller than wide */
+    padding: 8px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+    background-color: #f7f9fb;
+    color: #333;
+    overflow: visible;
+    min-height: 100px;
+    z-index: 1;
+    position: relative;
+}
+
+.calendar-day.outside-month {
+    background-color: #e9ecef;
+    color: #999;
+    opacity: 0.6;
+}
+
+.calendar-day .day-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+/* .calendar-day.today {
+    border: 3px solid var(--gold-accent);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 5px rgba(255, 195, 7, 0.5);
+    background-clip: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+} */
+
+.calendar-day .day-status {
+    font-size: 0.6rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 1px;
+    padding: 1px 0;
+    border-radius: 4px;
+    color: white;
+}
+
+.calendar-day .day-detail {
+    font-size: 0.5rem;
+    line-height: 1.1;
+    color: inherit;
+    opacity: 0.8;
+    /* Multiline ellipsis for details */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: visible;
+}
+
+/* Color Coding and Interactivity */
+/* Free Day: Clickable to find jobs */
+.day-type-free {
+    background-color: #e8f9e8; /* Light Green/Available */
+    color: #1a7d1a;
+    cursor: pointer;
+}
+.day-type-free .day-status {
+    background-color: #28a745; /* Darker Green for FREE label */
+}
+.clickable-free-day:hover {
+    background-color: #d8f5d8; /* Highlight on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+}
+
+/* External Job Day */
+.day-type-external {
+    background-color: #ffe8d6; /* Light Orange/Yellow - External Job */
+    color: #cc8400;
+}
+.day-type-external .day-status {
+    background-color: #ffc107; /* Orange for External label */
+}
+
+/* NCL Booked Job Day */
+.day-type-ncl-booked {
+    background-color: #e3f2fd; /* Light Blue - NCL Booked */
+    color: #0d47a1;
+}
+.day-type-ncl-booked .day-status {
+    background-color: #2196f3; /* Blue for NCL BOOKED label */
+}
+
+/* =====================================================
+   QUALITY TAB STYLES
+   ===================================================== */
+
+.quality-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.checklist-area, .signoff-area {
+    margin-top: 20px;
+}
+
+.checklist-header {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.checklist-list {
+    margin-top: 10px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.checklist-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checklist-label {
+    flex: 1;
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.validation-message {
+    color: var(--error-color);
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.signature-pad {
+    display: block;
+    width: 100%;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    margin: 15px 0;
+    background: #fafafa;
+    touch-action: none;
+}
+
+.clear-sig-btn {
+    background: #94a3b8;
+    color: white;
+}
+
+.clear-sig-btn:hover {
+    background: #64748b;
+}
+
+/* =====================================================
+   TEMP CARD TAB STYLES
+   ===================================================== */
+
+.temp-card-entry {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.temp-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.temp-cards-list {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.list-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 16px;
+}
+
+.temp-card-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: #f8fafc;
+}
+
+.temp-card-item.in-use {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-number {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.card-owner {
+    font-size: 0.8rem;
+    color: var(--subtle-text);
+    font-style: italic;
+}
+
+.card-status {
+    font-size: 0.8rem;
+    color: var(--subtle-text);
+    font-weight: 500;
+}
+
+.temp-card-item.in-use .card-status {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+/* =====================================================
+   QR SCANNER MODAL
+   ===================================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.visible {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #888;
+    width: 85%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.modal-info {
+    font-size: 0.9rem;
+    color: var(--subtle-text);
+    margin: 15px 0;
+}
+
+.scanner-viewport {
+    width: 100%;
+    height: 200px;
+    max-width: 280px;
+    margin: 0 auto 15px;
+    border: 3px solid var(--primary-color);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.scanner-placeholder {
+    text-align: center;
+    color: #6b7280;
+}
+
+.scan-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.scan-text {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+   MOBILE RESPONSIVENESS
+   ===================================================== */
+
+@media (max-width: 480px) {
+    .scanner-viewport {
+        max-width: 240px;
+        height: 240px;
+    }
+    
+    .job-actions, .temp-actions {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        width: 100%;
+    }
+    
+    .record-item {
+        width: 100%;
+        order: 3;
+    }
+
+    .record-details {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-right: 0;
+    }
+
+    .record-action {
+        margin-right: 8px;
+        margin-bottom: 0;
+    }
+    
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-tab {
+        font-size: 0.7rem;
+        padding: 8px 6px;
+    }
+
+    .app-header {
+        padding: 0.875rem 1rem;
+    }
+}
+    
+/* Responsive Design */
+@media (max-width: 480px) {
+    .quick-stats {
+        padding: 16px;
+        gap: 8px;
+    }
+    
+    .stat-card {
+        padding: 12px;
+        min-width: 80px;
+    }
+    
+    .job-card {
+        margin: 0 16px 16px;
+        padding: 20px;
+    }
+    
+    .job-actions {
+        flex-direction: column;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .bottom-nav,
+    .fab,
+    .header-actions,
+    .job-actions {
+        display: none;
+    }
+    
+    .job-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    
+    .quick-stats {
+        break-inside: avoid;
+    }
+    
+    .app-header {
+        background: none;
+        border-bottom: 2px solid #000;
+    }
+}
+
+.calendar-scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+    background-color: var(--text-color, #f1f1f1);
+}
+
+.calendar-scroll-wrapper::-webkit-scrollbar-track {
+    background: var(--text-color, #f1f1f1);
+    border-radius: 10px;
+}
+
+.calendar-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--subtle-text, #f1f1f1);
+    border-radius: 10px;
+}
+
+.calendar-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color, #888);
+}

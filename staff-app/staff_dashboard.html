@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="../styles/pages/staff/dashboard.css">
 </head>
 <body>
-    <div class="mockup-container">
-        <h1 class="section-title">Staff Job Dashboard</h1>
-        <div class="phone-mockup">
+    <div class="phone-mockup">
             <div class="phone-screen">
                 <!-- Status Bar -->
                 <div class="status-bar">
@@ -26,21 +24,21 @@
                 <div class="screen-content">
                     <!-- Header -->
                     <header class="app-header">
+                        <button class="search-btn" aria-label="Filter jobs" id="filterBtn">
+                                <span class="search-icon">🔍</span>
+                            </button>
                         <div class="header-content">
-                            <h1 class="header-title">My Jobs</h1>
-                            <div class="header-stats">
-                                <span class="jobs-count" id="jobsCount">2 jobs today</span>
+                            <div class="user-greeting">
+                                <h1 class="header-title">My Jobs</h1>
+                                <p class="header-subtitle">
+                                    <span class="jobs-count" id="jobsCount">2 jobs today</span>
+                                </p>
                             </div>
                         </div>
-                        <div class="header-actions">
-                            <button class="header-action-btn" aria-label="Filter jobs" id="filterBtn">
-                                <span class="filter-icon">🔍</span>
-                            </button>
-                            <button class="header-action-btn" aria-label="Notifications" id="notificationsBtn">
+                            <button class="notification-btn" aria-label="Notifications" id="notificationsBtn">
                                 <span class="notification-icon">🔔</span>
-                                <span class="notification-badge" id="notificationBadge">2</span>
+                                <span class="notification-badge" id="notificationBadge" aria-hidden="true">2</span>
                             </button>
-                        </div>
                     </header>
 
                     <!-- Quick Stats -->
@@ -69,17 +67,28 @@
                     </section>
 
                     <!-- Job Filter Tabs -->
-                    <div class="job-filters" role="tablist" aria-label="Job status filters">
-                        <button class="filter-tab active" role="tab" aria-selected="true" data-filter="today">
-                            Today
-                        </button>
-                        <button class="filter-tab" role="tab" aria-selected="false" data-filter="upcoming">
-                            Upcoming
-                        </button>
-                        <button class="filter-tab" role="tab" aria-selected="false" data-filter="completed">
-                            Completed
-                        </button>
-                    </div>
+                    <section class="filter-section">
+                        <div class="filter-tabs" role="tablist" aria-label="Job status filters">
+                            <button class="filter-tab active"
+                                    role="tab" 
+                                    aria-selected="true" 
+                                    data-filter="today">
+                                Today
+                            </button>
+                            <button class="filter-tab" 
+                                    role="tab" 
+                                    aria-selected="false" 
+                                    data-filter="upcoming">
+                                Upcoming
+                            </button>
+                            <button class="filter-tab" 
+                                    role="tab" 
+                                    aria-selected="false" 
+                                    data-filter="completed">
+                                Completed
+                            </button>
+                        </div>
+                    </section>
 
                     <!-- Jobs Content -->
                     <main class="content-area" id="jobsContainer">
@@ -236,30 +245,37 @@
                     </button>
 
                     <!-- Bottom Navigation -->
-                    <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
-                        <a href="#" class="nav-item active" aria-current="page" aria-label="Jobs">
-                            <div class="nav-icon">🏠</div>
+                    <nav class="bottom-navigation" role="navigation" aria-label="Main navigation">
+                        <button class="nav-item active" data-page="Jobs" aria-current="page">
+                            <div class="nav-icon">
+                                <span>🏠</span>
+                            </div>
                             <span class="nav-label">Jobs</span>
                             <span class="nav-badge">2</span>
-                        </a>
-                        <a href="#" class="nav-item" aria-label="Schedule">
-                            <div class="nav-icon">📅</div>
+                        </button>
+                        <button class="nav-item" data-page="schedule">
+                            <div class="nav-icon">
+                                <span>📅</span>
+                            </div>
                             <span class="nav-label">Schedule</span>
-                        </a>
-                        <a href="#" class="nav-item" aria-label="Earnings">
-                            <div class="nav-icon">💰</div>
+                        </button>
+                        <button class="nav-item" aria-label="Earnings">
+                            <div class="nav-icon">
+                                <span>💰</span>
+                            </div>
                             <span class="nav-label">Earnings</span>
-                        </a>
-                        <a href="#" class="nav-item" aria-label="Profile">
-                            <div class="nav-icon">👤</div>
+                        </button>
+                        <button class="nav-item" data-page="profile">
+                            <div class="nav-icon">
+                                <span>👤</span>
+                            </div>
                             <span class="nav-label">Profile</span>
-                        </a>
+                        </button>
                     </nav>
                 </div>
             </div>
             <p class="screen-title">Staff Job Dashboard</p>
         </div>
-    </div>
 
     <script src="../styles/common/common.js"></script>
     <script src="../styles/pages/staff/staff_dashboard.js"></script>

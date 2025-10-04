@@ -129,7 +129,7 @@ class ServicesScreenManager {
 
     cacheElements() {
         this.elements = {
-            backBtn: document.querySelector('.back-btn'),
+            backBtn: document.querySelector('.header-back-btn'),
             searchBtn: document.querySelector('.search-btn'),
             filterTabs: document.querySelectorAll('.filter-tab'),
             servicesContainer: document.querySelector('.services-container'),
@@ -647,7 +647,7 @@ class ServicesScreenManager {
     navigateToPage(page) {
         const pageUrls = {
             home: 'home_screen.html',
-            bookings: 'bookings_screen.html',
+            bookings: 'booking_screen.html',
             profile: 'profile_screen.html'
         };
         
@@ -822,7 +822,7 @@ try {
     document.body.insertAdjacentHTML('beforeend', `
         <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
                     background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                    text-align: center; z-index: 9999; max-width: 300px;">
+                    text-align: center; z-index: 9999; max-width: 90%;">
             <h3 style="margin: 0 0 10px 0; color: #ef4444;">Unable to Load Services</h3>
             <p style="margin: 0 0 15px 0; color: #64748b;">Please refresh the page to try again.</p>
             <button onclick="window.location.reload()" 

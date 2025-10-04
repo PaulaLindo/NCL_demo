@@ -339,7 +339,7 @@ class HomeScreenManager {
     navigateToPage(page) {
         const pageUrls = {
             services: 'services_screen.html',
-            bookings: 'bookings_screen.html',
+            bookings: 'booking_screen.html',
             profile: 'profile_screen.html'
         };
         
@@ -527,53 +527,23 @@ class HomeScreenManager {
     }
 
     showToast(message, type = 'info') {
-        // Create toast notification
+    document.querySelectorAll('.toast').forEach(t => t.remove());
+    
+    const toast = this.createToastElement(message, type);
+    document.body.appendChild(toast);
+    
+    this.animateToast(toast);
+    this.scheduleToastRemoval(toast, 3000);
+    }
+
+    // Extract helpers
+    createToastElement(message, type) {
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
         toast.textContent = message;
         
-        // Add toast styles
-        Object.assign(toast.style, {
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
-            padding: '12px 20px',
-            borderRadius: '8px',
-            color: 'white',
-            fontWeight: '500',
-            fontSize: '14px',
-            zIndex: '1000',
-            opacity: '0',
-            transform: 'translateY(-20px)',
-            transition: 'all 0.3s ease'
-        });
-        
-        // Set background based on type
-        const backgrounds = {
-            success: '#10b981',
-            error: '#ef4444',
-            warning: '#f59e0b',
-            info: '#3b82f6'
-        };
-        
-        toast.style.background = backgrounds[type] || backgrounds.info;
-        
-        document.body.appendChild(toast);
-        
-        // Animate in
-        requestAnimationFrame(() => {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translateY(0)';
-        });
-        
-        // Remove after delay
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transform = 'translateY(-20px)';
-            setTimeout(() => {
-                document.body.removeChild(toast);
-            }, 300);
-        }, 3000);
+        this.applyToastStyles(toast, type);
+        return toast;
     }
 
     showUserFriendlyError(message) {
@@ -626,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.insertAdjacentHTML('beforeend', `
             <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
                         background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                        text-align: center; z-index: 9999;">
+                        text-align: center; z-index: 9999; max-width: 90%;"> 
                 <h3 style="margin: 0 0 10px 0; color: #ef4444;">Something went wrong</h3>
                 <p style="margin: 0 0 15px 0; color: #64748b;">Please refresh the page to try again.</p>
                 <button onclick="window.location.reload()" 

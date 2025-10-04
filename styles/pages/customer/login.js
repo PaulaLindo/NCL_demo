@@ -10,12 +10,17 @@ class LoginManager {
             email: {
                 required: true,
                 pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: 'Please enter a valid email address'
+                messages: {
+                    required: 'Email address is required',
+                    invalid: 'Please enter a valid email address'
+                }
             },
             password: {
                 required: true,
                 minLength: 1,
-                message: 'Password is required'
+                messages: {
+                    required: 'Password is required'
+                }
             }
         };
         
@@ -158,15 +163,14 @@ class LoginManager {
         return { isValid, errors };
     }
 
+    // Current has inline validation
     validateEmail(email) {
         if (!email) {
             return { isValid: false, message: 'Email address is required' };
         }
-        
         if (!this.validationRules.email.pattern.test(email)) {
             return { isValid: false, message: 'Please enter a valid email address' };
         }
-        
         return { isValid: true };
     }
 

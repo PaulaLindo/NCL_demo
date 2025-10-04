@@ -54,76 +54,6 @@
     font-weight: 400;
 }
 
-/* Form Styles */
-.login-form {
-    background: rgba(255, 255, 255, 0.95);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: 1.5rem;
-    padding: 2rem;
-    box-shadow: 
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    z-index: 1;
-}
-
-.form-group {
-    margin-bottom: 1.25rem;
-}
-
-.form-group:last-child {
-    margin-bottom: 0;
-}
-
-.form-label {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #475569;
-    margin-bottom: 0.5rem;
-}
-
-.input-container {
-    position: relative;
-}
-
-.form-input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 0.625rem;
-    font-size: 1rem;
-    color: #334155;
-    background: #f8fafc;
-    transition: all 0.2s ease;
-    outline: none;
-    box-sizing: border-box;
-}
-
-.form-input::placeholder {
-    color: #9ca3af;
-    font-weight: 400;
-}
-
-.form-input:focus {
-    border-color: var(--gold-accent);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    transform: translateY(-1px);
-    outline: none;
-    background-color: #fff;
-}
-
-.form-input:invalid:not(:placeholder-shown) {
-    border-color: var(--red-status);
-}
-
-.form-input.error {
-    border-color: var(--red-status);
-    box-shadow: 0 0 0 3px rgba(221, 59, 246, 0.5);
-    animation: shake 0.5s;
-}
-
 /* Password Input Specific Styles */
 .password-container {
     position: relative;
@@ -160,7 +90,27 @@
 }
 
 /* Error Messages */
+/* Current multiple definitions - consolidate */
 .error-message {
+    color: var(--red-status);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: 1.25rem;
+}
+
+.error-message:empty {
+    display: none;
+}
+
+.error-message::before {
+    content: '⚠️';
+    font-size: 0.75rem;
+}
+/* .error-message {
     color: var(--red-status);
     font-size: 0.875rem;
     margin-top: 0.5rem;
@@ -184,7 +134,7 @@
     content: '⚠️';
     margin-right: 0.375rem;
     font-size: 0.75rem;
-}
+} */
 
 /* Login Button */
 .login-button {
