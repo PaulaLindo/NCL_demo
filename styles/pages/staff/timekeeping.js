@@ -36,12 +36,6 @@ const MOCK_ALL_SHIFTS = [
     { date: '2025-10-28', type: 'NCL Shift', name: 'Standard Clean - Jones', hours: '11:00-13:00', location: 'Jones Apartment', isBooked: true },
 ];
 
-const MOCK_PAST_SHIFTS = [
-    { id: "rec005", jobName: "Standard Cleaning - Johnson Home", checkIn: '2025-10-01T08:00:00', checkOut: '2025-10-01T15:30:00', totalHours: '7.5', status: 'Approved' },
-    { id: "rec006", jobName: "Deep Cleaning - Corporate HQ", checkIn: '2025-09-28T09:30:00', checkOut: '2025-09-28T17:00:00', totalHours: '7.5', status: 'Pending Approval' },
-    { id: "rec007", jobName: "Gardening - Wilson Park", checkIn: '2025-09-27T10:00:00', checkOut: '2025-09-27T12:00:00', totalHours: '2.0', status: 'Needs Correction' },
-];
-
 const SERVICE_CHECKLISTS = {
     "Deep Clean": [
         "Kitchen cupboards cleaned (inside/out)",
@@ -185,8 +179,6 @@ class TimekeepingApp {
         this.allShifts = MOCK_ALL_SHIFTS;
         this.scheduleContainer = null;
         this.periodLabel = null;
-
-        this.contentArea = null;
         
         this.tempCardManager = new TempCardManager(this);
         
@@ -204,6 +196,7 @@ class TimekeepingApp {
         this.startRealtimeUpdates(); 
         this.updateHeaderStats();
         this.updateHeaderName();
+        this.setupBottomNavigation();
         
         // Initial mock record for demonstration
         if (this.timeRecords.length === 0) {
@@ -511,6 +504,48 @@ class TimekeepingApp {
                 </div>
             </div>
         `;
+    }
+
+    /**
+     * Binds click handlers to the bottom navigation bar items for page routing.
+     */
+    setupBottomNavigation() {
+        const navItems = document.querySelectorAll('.nav-bar .nav-item');
+        navItems.forEach(item => {
+            const page = item.getAttribute('data-page'); 
+
+            item.addEventListener('click', () => {
+                if (page) {
+                    // Handle routing for Home, Jobs, Profile
+                    // Assuming the target file is in a relative path like '../home_dashboard.html'
+                    let targetFile = '';
+                    switch (page) {
+                        case 'home':
+                            targetFile = 'staff-app/staff_dashboard.html';
+                            break;
+                        case 'quality':
+                            targetFile = 'staff-app/staff_dashboard.html'; // Placeholder file name
+                            break;
+                        default:
+                            targetFile = `staff-app/${page}.html`;
+                    }
+                    
+                    console.log(`Navigating to: ../${targetFile}`);
+                    window.location.href = `../${targetFile}`; 
+                } else if (item.textContent.includes('Timekeeping')) {
+                    // Handler for clicking the current page's button
+                    this.renderContent('timer'); // Re-render the default Timer view
+                    this.showNotification('You are already on the Timekeeping page.', 'info');
+                }
+            });
+            
+            // To make the Timekeeping tab visually active on this page load:
+            if (item.textContent.includes('Timekeeping')) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
     }
     
     // =====================================================
